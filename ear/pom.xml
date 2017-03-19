@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.certification.ejb</groupId>
+    <artifactId>earMain</artifactId>
+    <version>1.0.0</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <groupId>com.certification.ejb.earApp</groupId>
+  <artifactId>earApp</artifactId>
+  <packaging>ear</packaging>
+  <version>1.0.0</version>
+
+  <name>Testing Ear Application</name>
+
+  <build>
+    <finalName>earEjbApp</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-ear-plugin</artifactId>
+        <version>2.4.2</version>
+        <configuration>
+          <earSourceDirectory>src</earSourceDirectory>
+          <defaultLibBundleDir>lib</defaultLibBundleDir>
+          <generateApplicationXml>true</generateApplicationXml>
+          <version>6</version>
+          <defaultLibBundleDir>lib</defaultLibBundleDir>
+          <modules>
+            <ejbModule>
+              <groupId>com.certification.ejb.ejbApp</groupId>
+              <artifactId>ejbApp</artifactId>
+            </ejbModule>
+            <webModule>
+              <groupId>com.certification.ejb.webApp</groupId>
+              <artifactId>webApp</artifactId>
+              <contextRoot>/test/web</contextRoot>
+            </webModule>
+          </modules>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.certification.ejb.ejbApp</groupId>
+      <artifactId>ejbApp</artifactId>
+      <version>1.0.0</version>
+      <type>ejb</type>
+    </dependency>
+    <dependency>
+      <groupId>com.certification.ejb.webApp</groupId>
+      <artifactId>webApp</artifactId>
+      <version>1.0.0</version>
+      <type>war</type>
+    </dependency>
+  </dependencies>
+</project>

@@ -1,0 +1,17 @@
+.idea
+derby.log
+earMain.iml
+ear/.settings
+ear/target
+ear/.project
+ear/earApp.iml
+ejb/.settings
+ejb/target
+ejb/.classpath
+ejb/.project
+ejb/ejbApp.iml
+web/.settings
+web/target
+web/.classpath
+web/.project
+web/webApp.iml
